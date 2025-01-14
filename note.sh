@@ -11,6 +11,9 @@ function add() {
 
 
 function list() {
+   # if $NOTES_TXT empty, then echo error and return 1 and fi for finished
+
+
     echo $NOTES_TXT
 }
 
