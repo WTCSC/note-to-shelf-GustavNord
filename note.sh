@@ -35,7 +35,7 @@ function clear() {
 case "$1" in
     add) add "$2" ;;
     list) list ;;
-    search) search ;;
+    search) search "$2" ;;
     clear) clear ;;
     *) echo "Invalid command"; exit 1 ;;
 esac
