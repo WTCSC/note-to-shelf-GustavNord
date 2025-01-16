@@ -10,10 +10,7 @@ function add() {
     local time=$(date +"%Y-%m-%d %H:%M:%S")
     echo "$time - $note" >> "$NOTES_TXT"
     echo "Note added successfully"
-    exit 0
 }
-
-
 
 function list() {
     if [[ ! -f "$NOTES_TXT" || ! -s "$NOTES_TXT" ]]; then
@@ -21,7 +18,6 @@ function list() {
         exit 1
     fi
     cat "$NOTES_TXT"
-    exit 0
 }   
 
 
@@ -30,13 +26,12 @@ function search() {
         echo "Error: Notes file not found."
         exit 1
     fi
-    local search_word="$2"
+    local search_word="$1"
     if [[ -z "$search_word" ]]; then
         echo "Error: Search keyword cannot be empty."
         exit 1
     fi
     grep -i "$search_word" "$NOTES_TXT" || echo "No matching notes found."
-    exit 0
 }
 
 function clear() {
