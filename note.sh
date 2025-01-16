@@ -7,8 +7,7 @@ function add() {
         echo "Error: Note text cannot be empty."
         exit 1
     fi
-    local time
-    time=$(date +"%Y-%m-%d %H:%M:%S")
+    local time=$(date +"%Y-%m-%d %H:%M:%S")
     echo "$time - $note" >> "$NOTES_TXT"
     echo "Note added successfully"
     exit 0
