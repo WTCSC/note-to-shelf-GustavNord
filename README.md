@@ -1,57 +1,34 @@
 # Note to Shelf
+This code is a command-line tool for taking and managing notes from the terminal. Users are able to add, see the list, search for keywords, and clear notes. Each new note taken has a time stamp and date for better organization.
 
-<!--
+## Features
+Add notes (with timestamps) that are stored in a separate text file. 
 
-Create a shell script that functions as a command-line note-taking tool. This tool should help you quickly capture and organize thoughts, reminders, and tasks directly from the terminal.
+List all notes, showing them and their timestamps.
+
+Search for notes using keywords (not case sensative).
+
+Clear all notes from the text file.
+
+Handles errors for invalid inputs or empty files.
+
+Exit codes for both success and failure.
+
+## How it works
+When adding notes, the script appends said note to the `notes.txt` file with a timestamp.
+
+When listing the notes, the script will read and output the notes of `notes.txt` file if it's not empty.
+
+When searching for notes, the script will search for inputted keyword in the `notes.txt` file and output any matching notes.
+
+When clearing the notes, the script will clear the `notes.txt` file.
 
 ## Requirements
+Bash shell
 
-- The script must support the following commands:
-    - Add a new note: `note add "Your note text here"`
-    - List all notes: `note list`
-    - Search notes: `note search "keyword"`
-- Implementation requirements:
-    - Store notes in a text file with proper date/time stamps
-    - Include error handling for all commands
-    - Implement input validation
-    - Add proper logging for debugging
+File Handling
 
-## Testing Criteria
+Date Command
 
-Your script will be tested against the following scenarios:
-
-- Adding notes with special characters
-- Proper file operations (read/write)
-- Correct date/time formatting
-- Search functionality accuracy
-- Proper exit codes for success/failure
-
-## Example Usage
-
-```bash
-#!/bin/bash
-
-# Add a note
-$ ./note.sh add "Schedule dentist appointment"
-Note added successfully
-
-# List all notes
-$ ./note.sh list
-2025-01-06 12:04:06 - Schedule dentist appointment
-2025-01-06 12:05:04 - Buy groceries
-
-# Search notes
-$ ./note.sh search "dentist"
-2025-01-06 12:04:06 - Schedule dentist appointment
-```
-
-## Tips and Tricks
-
-You might find the following resources helpful for completing this assignment:
-
-- https://www.redhat.com/en/blog/arguments-options-bash-scripts
-- https://linuxhint.com/bash_append_line_to_file/
-- https://linuxconfig.org/how-to-find-a-string-or-text-in-a-file-on-linux
-- https://www.geeksforgeeks.org/create-timestamp-variable-in-bash-script/
-
--->
+## End of README
+This `README.md` is a detailed guide on the features, behavior, and requirements for the note-taking tool `note.sh`. 
