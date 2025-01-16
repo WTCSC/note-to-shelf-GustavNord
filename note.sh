@@ -7,9 +7,10 @@ function add() {
         echo "Error: Note text cannot be empty."
         exit 1
     fi
+    local time
+    time=$(date +"%Y-%m-%d %H:%M:%S")
+    echo "$time - $note" >> "$NOTES_TXT"
     echo "Note added successfully"
-    modified_note="$(date +"%Y-%m-%d %H:%M:%S") - $1"
-    echo "$modified_note" >> notes.txt
     exit 0
 }
 
@@ -19,12 +20,10 @@ function list() {
     if [[ ! -f "$NOTES_TXT" || ! -s "$NOTES_TXT" ]]; then
         echo "Error: No notes found"
         exit 1
-    else
-        cat $NOTES_TXT
-        exit 0
     fi
+    cat "$NOTES_TXT"
+    exit 0
 }   
-
 
 
 function search() {
@@ -51,7 +50,8 @@ case "$1" in
     list) list ;;
     search) search "$2" ;;
     clear) clear ;;
-    *) echo "Invalid command. Usage: $0 {add|list|search|clear} [arguments]" 
-    exit 1 
-    ;;
+    *) 
+        echo "Invalid command. Usage: $0 {add|list|search|clear} [arguments]" 
+        exit 1 
+        ;;
 esac
